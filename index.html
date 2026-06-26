@@ -1,309 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Advanced HTML Page</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Amritha Akka</title>
 
-        h1, h2, h3 {
-            margin: 0;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700;800&display=swap');
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
+body{
+  min-height:100vh;
+  padding:25px;
+  font-family:'Poppins',sans-serif;
+  background:
+    radial-gradient(circle at top left,#fff4b8,transparent 35%),
+    radial-gradient(circle at top right,#ffd4e8,transparent 32%),
+    radial-gradient(circle at bottom left,#ffe7a8,transparent 35%),
+    linear-gradient(135deg,#fffdf1,#fff0f7,#fff7d6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#4b1f2f;
+  overflow-x:hidden;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+.card{
+  width:100%;
+  max-width:980px;
+  background:rgba(255,255,255,.92);
+  border:4px solid #d4af37;
+  border-radius:38px;
+  padding:42px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 30px 90px rgba(212,175,55,.35);
+}
 
-        nav a:hover {
-            color: #ffd700;
-        }
+.card:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:2px dashed rgba(212,175,55,.45);
+  border-radius:30px;
+  pointer-events:none;
+}
 
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
+.sparkle{
+  position:fixed;
+  top:-40px;
+  font-size:28px;
+  animation:fall linear infinite;
+  opacity:.85;
+  z-index:1;
+}
 
-        .sidebar, .main-content, .extra {
-            background: white;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-            flex: 1 1 30%;
-        }
+.sparkle:nth-child(1){left:8%;animation-duration:7s}
+.sparkle:nth-child(2){left:22%;animation-duration:9s}
+.sparkle:nth-child(3){left:38%;animation-duration:6s}
+.sparkle:nth-child(4){left:58%;animation-duration:8s}
+.sparkle:nth-child(5){left:78%;animation-duration:7s}
+.sparkle:nth-child(6){left:90%;animation-duration:10s}
 
-        .extra {
-            flex: 1 1 100%;
-            margin-top: 20px;
-        }
+@keyframes fall{
+  to{transform:translateY(115vh) rotate(360deg)}
+}
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+.title{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(58px,10vw,105px);
+  color:#d89b00;
+  text-shadow:2px 2px 0 #fff,0 0 28px rgba(255,196,55,.9);
+  margin-top:25px;
+}
 
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-        }
+.subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,6vw,62px);
+  font-weight:900;
+  color:#d6002f;
+  text-transform:none;
+  letter-spacing:1px;
+  margin:12px 0 34px;
+  text-shadow:0 2px 0 #fff,0 0 20px rgba(214,0,47,.25);
+}
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding-top: 60px;
-        }
+.photo-box{
+  width:315px;
+  height:315px;
+  margin:0 auto 35px;
+  border-radius:50%;
+  padding:10px;
+  background:linear-gradient(135deg,#d4af37,#fff3a8,#e91e63,#d4af37);
+  position:relative;
+  box-shadow:0 25px 55px rgba(233,30,99,.28);
+  animation:float 3s ease-in-out infinite;
+}
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 8px;
-        }
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.photo-box img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  border:8px solid #fff;
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
+.quote{
+  max-width:770px;
+  margin:0 auto 28px;
+  padding:26px;
+  border-radius:26px;
+  background:linear-gradient(135deg,#fff8df,#ffffff);
+  border:2px solid #d4af37;
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  line-height:1.65;
+  color:#5a2437;
+  box-shadow:0 15px 35px rgba(212,175,55,.18);
+}
 
-        /* Slider */
-        .slider {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-        }
+.message{
+  max-width:850px;
+  margin:auto;
+  padding:32px;
+  background:#ffffff;
+  border:2px solid #f4c542;
+  border-radius:30px;
+  text-align:left;
+  font-size:19px;
+  line-height:1.9;
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+}
 
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
+.message b{
+  color:#e91e63;
+}
 
-        .slide {
-            width: 100%;
-            height: 400px;
-            background: #333;
-            color: white;
-            text-align: center;
-            line-height: 400px;
-        }
+.final{
+  margin-top:34px;
+  padding:28px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#e91e63,#ff7eb3);
+  color:white;
+  box-shadow:0 18px 40px rgba(233,30,99,.33);
+}
 
-        .button-container {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
+.final h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,5vw,50px);
+}
 
-        .prev, .next {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 24px;
-            padding: 10px;
-            cursor: pointer;
-        }
+.final p{
+  margin-top:14px;
+  font-size:21px;
+  font-weight:700;
+}
 
-        /* Accordion */
-        .accordion {
-            background-color: #f4f4f4;
-            color: #444;
-            cursor: pointer;
-            padding: 15px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: 0.4s;
-        }
+.from{
+  margin-top:42px;
+  font-family:"Times New Roman",Times,serif;
+  text-align:center;
+  line-height:1.45;
+  text-shadow:2px 2px 8px rgba(0,0,0,.15);
+}
 
-        .active, .accordion:hover {
-            background-color: #ddd;
-        }
+.love{
+  font-size:40px;
+  font-weight:bold;
+  color:#b8860b;
+}
 
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: #f1f1f1;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-    </style>
+.thambi{
+  font-size:40px;
+  font-weight:bold;
+  color:#c40032;
+  margin-top:18px;
+}
+
+.corner{
+  position:absolute;
+  font-size:45px;
+  opacity:.75;
+}
+
+.c1{top:18px;left:22px}
+.c2{top:18px;right:22px}
+.c3{bottom:18px;left:22px}
+.c4{bottom:18px;right:22px}
+
+@media(max-width:650px){
+  body{padding:14px}
+  .card{padding:25px}
+  .photo-box{
+    width:245px;
+    height:245px;
+  }
+  .quote{
+    font-size:18px;
+    padding:20px;
+  }
+  .message{
+    font-size:16px;
+    padding:22px;
+  }
+  .love{
+    font-size:34px;
+  }
+  .thambi{
+    font-size:48px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Advanced HTML Page</h1>
-    <p>With Modals, Sliders, Accordions, and More!</p>
-</header>
+<div class="sparkle">🌸</div>
+<div class="sparkle">✨</div>
+<div class="sparkle">💖</div>
+<div class="sparkle">🌷</div>
+<div class="sparkle">👑</div>
+<div class="sparkle">💫</div>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-</nav>
+<div class="card">
 
-<div class="content">
-    <div class="sidebar">
-        <h2>Sidebar</h2>
-        <p>This is a sidebar where you can add links or content.</p>
-    </div>
+  <div class="corner c1">🌸</div>
+  <div class="corner c2">👑</div>
+  <div class="corner c3">💖</div>
+  <div class="corner c4">🌸</div>
 
-    <div class="main-content">
-        <h2>Featured Services</h2>
-        <p>Here are some of the services we provide. Feel free to explore more.</p>
+  <h1 class="title">Happy Birthday</h1>
 
-        <!-- Accordion -->
-        <button class="accordion">Accordion Section 1</button>
-        <div class="panel">
-            <p>This is the content of accordion section 1.</p>
-        </div>
+  <h2 class="subtitle">My Queen Amritha Akkaaaaaa 👑</h2>
 
-        <button class="accordion">Accordion Section 2</button>
-        <div class="panel">
-            <p>This is the content of accordion section 2.</p>
-        </div>
+  <div class="photo-box">
+    <img src="amritha.jpg" alt="Amritha Akka">
+  </div>
 
-        <!-- Slider -->
-        <h3>Image Slider</h3>
-        <div class="slider">
-            <div class="slides">
-                <div class="slide" style="background: #2980b9;">Slide 1</div>
-                <div class="slide" style="background: #8e44ad;">Slide 2</div>
-                <div class="slide" style="background: #f39c12;">Slide 3</div>
-            </div>
-            <div class="button-container">
-                <span class="prev" onclick="moveSlides(-1)">&#10094;</span>
-                <span class="next" onclick="moveSlides(1)">&#10095;</span>
-            </div>
-        </div>
-    </div>
+  <div class="quote">
+    <b>Some people come into our lives as teachers, but very few become family.</b><br>
+    You are one of those rare people.
+  </div>
 
-    <div class="extra">
-        <h2>Additional Information</h2>
-        <p>Here you can add anything extra like news, blog posts, or announcements.</p>
+  <div class="message">
+    You may have been my Class 11 teacher, but to me, you'll always be my
+    <b>Queen Amritha Akka</b>, someone who has guided me, encouraged me,
+    cared for me, and made me feel like a <b>true younger brother.</b>
+    Your kindness, your heart, and the way you always support me are the reasons
+    I'll always look up to you.
+    <b>The bond we share is something I'll treasure forever.</b>
 
-        <!-- Card Example -->
-        <div class="card">
-            <h3>Card Title</h3>
-            <p>This is a simple card with some content.</p>
-        </div>
-        <div class="card">
-            <h3>Another Card</h3>
-            <p>Content for another card with some information.</p>
-        </div>
-    </div>
+    <br><br>
+
+    On your special day, I pray that God blesses you with
+    <b>good health, endless happiness, success, peace, and countless beautiful moments.</b>
+    May every dream in your heart come true, and may your beautiful smile continue
+    to brighten the lives of everyone around you.
+
+    <br><br>
+
+    Thank you for being such an <b>amazing teacher, an inspiring person,
+    My Queen Akka,</b> and above all, the wonderful soul you are.
+    <b>I'm truly grateful and blessed to have you in my life.</b>
+  </div>
+
+  <div class="final">
+    <h2>Happy Birthday, My Queen Amritha Akkaaaaaa! 🎂✨👑</h2>
+    <p>
+      May your life always be as beautiful as your heart, as bright as your smile,
+      and as wonderful as the happiness you bring to everyone around you.
+    </p>
+  </div>
+
+  <div class="from">
+    <div class="love">With Lots Of Love And Endless Gratitude Always... ❤️</div>
+    <div class="thambi">Your Loving Thambi</div>
+  </div>
+
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Welcome to Our Website!</h2>
-        <p>This is a modal dialog that you can show or hide.</p>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Advanced HTML Page. All rights reserved.</p>
-</footer>
-
-<script>
-    // Modal functionality
-    function openModal() {
-        document.getElementById("myModal").style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-    }
-
-    // Accordion functionality
-    var accordions = document.getElementsByClassName("accordion");
-    for (var i = 0; i < accordions.length; i++) {
-        accordions[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    // Slider functionality
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        var slides = document.getElementsByClassName("slide");
-        for (var i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000); // Change
+</body>
+</html>
